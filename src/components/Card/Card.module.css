@@ -1,0 +1,43 @@
+.cardContainer {
+    width: 100%;
+}
+
+.card {
+    width: 100%;
+    min-height: 100%;
+}
+
+.cardImage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8 / 6;
+    object-fit: cover;
+}
+
+@media (max-width: 1366px) {
+    .cardImage {
+        aspect-ratio: 16 / 11;
+    }
+}
+
+@media (max-width: 640px) {
+    .cardContainer {
+        max-width: 20rem;
+        margin: 0 auto;
+    }
+
+    .cardImage {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+.cardLink {
+    color: #0f5b78;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cardLink:hover {
+    text-decoration: underline;
+}
+
