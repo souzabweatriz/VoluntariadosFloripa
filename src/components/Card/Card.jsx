@@ -23,7 +23,7 @@ export default function CardComponent({
 			rel="noopener noreferrer"
 			className={styles.cardLink}
 		>
-			{description.replace(/^https?:\/\//, "")}
+			Saiba mais
 		</a>
 	) : (
 		description

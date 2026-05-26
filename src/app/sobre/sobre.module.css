@@ -1,0 +1,408 @@
+.page {
+	--brand-deep: #0f3540;
+	--brand-mid: #1e5c64;
+	--brand-soft: #5ca0a4;
+	--brand-highlight: #f2c14e;
+	--text-main: #1e2528;
+	--text-soft: #47575b;
+
+	min-height: 100vh;
+	width: 100%;
+	background:
+		radial-gradient(circle at 8% 14%, rgba(242, 193, 78, 0.22), transparent 36%),
+		radial-gradient(circle at 88% 6%, rgba(30, 92, 100, 0.2), transparent 42%),
+		linear-gradient(180deg, #fdfdf9 0%, #eef4ed 100%);
+}
+
+.mainContent {
+	position: relative;
+	width: min(74rem, 95vw);
+	margin: 0 auto;
+	padding: 1.8rem 0 2.8rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.1rem;
+}
+
+.mainContent::before {
+	content: "";
+	position: absolute;
+	width: 240px;
+	height: 240px;
+	border-radius: 50%;
+	right: -80px;
+	top: 130px;
+	background: radial-gradient(circle, rgba(30, 92, 100, 0.3), rgba(30, 92, 100, 0));
+	opacity: 0.5;
+	pointer-events: none;
+	animation: floatBlob 7s ease-in-out infinite;
+}
+
+.heroSection {
+	position: relative;
+	overflow: hidden;
+	color: #fff;
+	background: linear-gradient(140deg, var(--brand-deep) 0%, var(--brand-mid) 78%);
+	border-radius: 1.2rem;
+	padding: 2.2rem 2.2rem 1.6rem;
+	box-shadow: 0 14px 34px rgba(7, 22, 25, 0.2);
+	animation: fadeSlideUp 0.72s ease both;
+}
+
+.heroSection::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(110deg, transparent 22%, rgba(255, 255, 255, 0.2) 38%, transparent 50%);
+	transform: translateX(-120%);
+	animation: shimmerSweep 5.5s ease-in-out infinite;
+}
+
+.badge {
+	width: fit-content;
+	padding: 0.4rem 0.72rem;
+	border-radius: 999px;
+	font-size: 0.78rem;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	background: rgba(255, 255, 255, 0.18);
+	margin-bottom: 1rem;
+}
+
+.title {
+	font-size: clamp(1.5rem, 2.7vw, 2.45rem);
+	line-height: 1.2;
+	max-width: 17ch;
+	margin-bottom: 1rem;
+}
+
+.subtitle {
+	max-width: 70ch;
+	line-height: 1.65;
+	color: rgba(255, 255, 255, 0.93);
+}
+
+.heroStats {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.75rem;
+	margin-top: 1.2rem;
+}
+
+.heroStatItem {
+	padding: 0.85rem;
+	border-radius: 0.75rem;
+	background: rgba(255, 255, 255, 0.14);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	backdrop-filter: blur(2px);
+}
+
+.heroStatNumber {
+	font-size: 1.1rem;
+	font-weight: 800;
+	margin-bottom: 0.2rem;
+}
+
+.heroStatLabel {
+	font-size: 0.85rem;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.storySection {
+	position: relative;
+	z-index: 1;
+	border-radius: 1rem;
+	padding: 1.6rem;
+	border: 1px solid rgba(18, 62, 66, 0.13);
+	background: rgba(255, 255, 255, 0.8);
+	backdrop-filter: blur(2px);
+	animation: fadeSlideUp 0.82s ease both;
+}
+
+.journeySection {
+	position: relative;
+	z-index: 1;
+	border-radius: 1rem;
+	padding: 1.4rem;
+	border: 1px solid rgba(18, 62, 66, 0.13);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(244, 249, 248, 0.92));
+	animation: fadeSlideUp 0.82s ease both;
+}
+
+.timeline {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.8rem;
+	padding: 0;
+	margin: 0;
+}
+
+.timelineItem {
+	position: relative;
+	padding: 0.9rem;
+	border-radius: 0.75rem;
+	background: #ffffff;
+	border: 1px solid rgba(23, 80, 85, 0.16);
+	box-shadow: 0 8px 14px rgba(9, 31, 36, 0.06);
+}
+
+.timelineYear {
+	display: inline-block;
+	font-size: 0.82rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--brand-mid);
+	margin-bottom: 0.45rem;
+}
+
+.timelineText {
+	font-size: 0.93rem;
+	line-height: 1.55;
+	color: var(--text-soft);
+}
+
+.manifestoSection {
+	position: relative;
+	z-index: 1;
+	padding: 1.2rem 1.35rem;
+	border-radius: 1rem;
+	background: linear-gradient(100deg, rgba(14, 56, 62, 0.97), rgba(26, 95, 101, 0.95));
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	box-shadow: 0 12px 24px rgba(9, 31, 36, 0.15);
+	animation: fadeSlideUp 0.82s ease both;
+}
+
+.manifestoText {
+	color: #f8fbfb;
+	font-size: clamp(1rem, 1.5vw, 1.14rem);
+	line-height: 1.7;
+	font-weight: 500;
+	max-width: 88ch;
+}
+
+.familySection {
+	position: relative;
+	z-index: 1;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	backdrop-filter: none;
+	animation: fadeSlideUp 0.82s ease both;
+}
+
+.valuesSection {
+	position: relative;
+	z-index: 1;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	backdrop-filter: none;
+	animation: fadeSlideUp 0.82s ease both;
+}
+
+.sectionTitle {
+	color: var(--brand-deep);
+	font-size: clamp(1.2rem, 2vw, 1.78rem);
+	margin-bottom: 0.85rem;
+}
+
+.text {
+	color: var(--text-soft);
+	line-height: 1.72;
+	margin-bottom: 0.65rem;
+	max-width: 92ch;
+}
+
+.valuesGrid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.95rem;
+}
+
+.valueCard {
+	position: relative;
+	background: #ffffff;
+	border: 1px solid rgba(22, 76, 82, 0.16);
+	border-radius: 0.85rem;
+	padding: 1rem;
+	box-shadow: 0 8px 18px rgba(9, 31, 36, 0.08);
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.valueCard::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 4px;
+	border-radius: 0.85rem 0.85rem 0 0;
+	background: linear-gradient(90deg, var(--brand-mid), var(--brand-soft));
+}
+
+.valueCard:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 14px 24px rgba(9, 31, 36, 0.14);
+}
+
+.valueTitle {
+	font-size: 1.05rem;
+	color: var(--brand-deep);
+	margin-bottom: 0.5rem;
+}
+
+.valueText {
+	color: var(--text-soft);
+	font-size: 0.95rem;
+	line-height: 1.62;
+}
+
+.peopleGrid {
+	display: grid;
+	grid-template-columns: minmax(0, 420px);
+	justify-content: center;
+	gap: 0.95rem;
+}
+
+.personCard {
+	position: relative;
+	background: #ffffff;
+	border: 1px solid rgba(22, 76, 82, 0.16);
+	border-radius: 0.85rem;
+	padding: 1rem 1rem 1.1rem;
+	box-shadow: 0 8px 18px rgba(9, 31, 36, 0.08);
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.personCard::after {
+	content: "Lideranca";
+	position: absolute;
+	top: 0.9rem;
+	right: 0.9rem;
+	padding: 0.2rem 0.5rem;
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	border-radius: 999px;
+	color: #0c3a44;
+	background: rgba(242, 193, 78, 0.35);
+	border: 1px solid rgba(242, 193, 78, 0.75);
+}
+
+.profileImageWrap {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	border-radius: 0.75rem;
+	overflow: hidden;
+	margin-bottom: 0.85rem;
+	background: #e9efee;
+}
+
+.profileImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 20%;
+}
+
+.personCard:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 14px 24px rgba(9, 31, 36, 0.14);
+}
+
+.personName {
+	font-size: 1.05rem;
+	color: var(--brand-deep);
+	margin-bottom: 0.34rem;
+}
+
+.personRole {
+	color: #2d6c73;
+	font-size: 0.93rem;
+	font-weight: 700;
+	margin-bottom: 0.55rem;
+}
+
+.personText {
+	color: var(--text-soft);
+	font-size: 0.94rem;
+	line-height: 1.58;
+}
+
+@keyframes fadeSlideUp {
+	from {
+		opacity: 0;
+		transform: translateY(16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes shimmerSweep {
+	0% {
+		transform: translateX(-120%);
+	}
+	44% {
+		transform: translateX(130%);
+	}
+	100% {
+		transform: translateX(130%);
+	}
+}
+
+@keyframes floatBlob {
+	0% {
+		transform: translateY(0) scale(1);
+	}
+	50% {
+		transform: translateY(-12px) scale(1.03);
+	}
+	100% {
+		transform: translateY(0) scale(1);
+	}
+}
+
+@media (max-width: 1024px) {
+	.mainContent {
+		width: 94vw;
+	}
+
+	.peopleGrid {
+		grid-template-columns: 1fr;
+		justify-content: stretch;
+	}
+
+	.heroStats,
+	.timeline {
+		grid-template-columns: 1fr;
+	}
+
+	.valuesGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 640px) {
+	.mainContent {
+		gap: 1rem;
+		padding: 1rem 0 1.8rem;
+	}
+
+	.heroSection,
+	.storySection,
+	.journeySection,
+	.manifestoSection {
+		padding: 1.2rem;
+	}
+
+	.personCard::after {
+		position: static;
+		display: inline-block;
+		margin-bottom: 0.75rem;
+	}
+}

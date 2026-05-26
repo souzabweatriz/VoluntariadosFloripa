@@ -1,74 +1,136 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import styles from "./Header.module.css";
 import Image from "next/image";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { FaWhatsapp } from "react-icons/fa";
+import {
+    AiOutlineDown,
+    AiOutlineFacebook,
+    AiOutlineInstagram,
+    AiOutlineTwitter,
+    AiOutlineYoutube,
+    AiOutlineLinkedin,
+    AiOutlineMail,
+    AiOutlinePhone,
+    AiOutlineClockCircle,
+} from "react-icons/ai";
+import styles from "./Header.module.css";
 
 export default function Header() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsMenuOpen((prev) => !prev);
-    };
-
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-    };
-
     return (
         <header className={styles.header}>
-            <div className={styles.sideLeft}>
-                <Image
-                    src="/logo.png"
-                    alt="Logo da ONG Voluntários Florianopólis"
-                    width={130}
-                    height={100}
-                    className={styles.logo}
-                />
-            </div>
-            <nav className={styles.navHeader}>
-                <ul className={styles.navList}>
-                    <li><a className={styles.navItem} href="">Início</a></li>
-                    <li><a className={styles.navItem} href="/sobre">Sobre Nós</a></li>
-                    <li><a className={styles.navItem} href="/projetos">Projetos</a></li>
-                </ul>
-            </nav>
-            <div className={styles.sideRight}>
-                <button
-                    type="button"
-                    className={styles.menuButton}
-                    onClick={toggleMenu}
-                    aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
-                    aria-expanded={isMenuOpen}
-                >
-                    {isMenuOpen ? (
-                        <AiOutlineClose className={styles.menuIcon} />
-                    ) : (
-                        <AiOutlineMenu className={styles.menuIcon} />
-                    )}
-                </button>
-                <a 
-                    href="https://wa.me/554884452262" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className={styles.whatsappLink}
-                    aria-label="Contato via WhatsApp"
-                >
-                    <FaWhatsapp className={styles.whatsappIcon} />
-                </a>
-                {isMenuOpen && (
-                    <div className={styles.menuPanel}>
-                        <Link href="/doacao" className={styles.menuLink} onClick={closeMenu}>
-                            Doacao
-                        </Link>
-                        <Link href="/contato" className={styles.menuLink} onClick={closeMenu}>
-                            Contato
-                        </Link>
+
+            <div className={styles.topBar}>
+                <div className={styles.socialLinks}>
+                    <div className={styles.socialItem}>
+                        <AiOutlineFacebook className={styles.socialIcon} />
                     </div>
-                )}
+                    <div className={styles.socialItem}>
+                        <AiOutlineInstagram className={styles.socialIcon} />
+                    </div>
+                    <div className={styles.socialItem}>
+                        <AiOutlineTwitter className={styles.socialIcon} />
+                    </div>
+                    <div className={styles.socialItem}>
+                        <AiOutlineYoutube className={styles.socialIcon} />
+                    </div>
+                    <div className={styles.socialItem}>
+                        <AiOutlineLinkedin className={styles.socialIcon} />
+                    </div>
+                </div>
+
+                <div className={styles.contactInfo}>
+                    <div className={styles.contactItem}>
+                        <div className={styles.contactIconWrapper}>
+                            <AiOutlineMail className={styles.contactIcon} />
+                        </div>
+                        <p className={styles.contactText}>contato@voluntariosfloripa.com.br</p>
+                    </div>
+                    <div className={styles.contactItem}>
+                        <div className={styles.contactIconWrapper}>
+                            <AiOutlinePhone className={styles.contactIcon} />
+                        </div>
+                        <p className={styles.contactText}>+55 11-46558404</p>
+                    </div>
+                    <div className={styles.contactItem}>
+                        <div className={styles.contactIconWrapper}>
+                            <AiOutlineClockCircle className={styles.contactIcon} />
+                        </div>
+                        <p className={styles.contactText}>9:30 AM – 5:30 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className={styles.mainBar}>
+
+                <div className={styles.containerLogo}>
+                    <Link href="/" className={styles.logoLink}>
+                        <div className={styles.logoWrapper}>
+                            <Image
+                                src="/images/logo.webp"
+                                alt="Logo Voluntários Florianópolis"
+                                width={36}
+                                height={36}
+                                className={styles.logo}
+                            />
+                        </div>
+                    </Link>
+                    <div className={styles.brandName}>
+                        <p className={styles.titleLogo}>Voluntários</p>
+                        <p className={styles.titleLogo}>Florianópolis</p>
+                    </div>
+                </div>
+
+                <nav className={styles.nav}>
+                    <Link href="/" className={styles.navItem}>
+                        <p className={styles.navLabel}>Início</p>
+                    </Link>
+                    <Link href="/sobre" className={styles.navItem}>
+                        <p className={styles.navLabel}>Sobre Nós</p>
+                        <div className={styles.chevronWrapper}>
+                            <AiOutlineDown className={styles.chevron} />
+                        </div>
+                    </Link>
+                    <Link href="/acoes" className={styles.navItem}>
+                        <p className={styles.navLabel}>Ações Sociais</p>
+                        <div className={styles.chevronWrapper}>
+                            <AiOutlineDown className={styles.chevron} />
+                        </div>
+                    </Link>
+                </nav>
+
+                <div className={styles.rightArea}>
+                    <div className={styles.apoioBlock}>
+                        <div className={styles.apoioIconWrapper}>
+                            <Image
+                                src="/images/maobtn.png"
+                                alt="Apoie"
+                                width={32}
+                                height={32}
+                                className={styles.apoioIcon}
+                            />
+                        </div>
+                        <div className={styles.apoioText}>
+                            <p className={styles.apoioSub}>Junte-se à causa</p>
+                            <p className={styles.apoioTitle}>Apoie!</p>
+                        </div>
+                    </div>
+
+                    <button className={styles.btnDoacao}>
+                        <div className={styles.btnDoacaoContent}>
+                            <p className={styles.btnDoacaoLabel}>Realizar doação</p>
+                            <div className={styles.btnIconWrapper}>
+                                <Image
+                                    src="/images/doacaobtn.png"
+                                    alt=""
+                                    width={20}
+                                    height={20}
+                                    className={styles.btnIcon}
+                                />
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
             </div>
         </header>
     );
