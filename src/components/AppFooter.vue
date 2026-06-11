@@ -101,16 +101,15 @@ const year = computed(() => new Date().getFullYear())
 
 const navLinks = [
     { label: 'Início', to: '/' },
-    { label: 'Galeria', to: '/galeria' },
     { label: 'Sobre nós', to: '/sobre' },
     { label: 'Como ajudar', to: '/como-ajudar' },
     { label: 'Contato', to: '/contato' },
 ]
 
 const helpLinks = [
-    { label: 'Doe para o bazar', href: '#' },
-    { label: 'Doe alimentos', href: '#' },
-    { label: 'Seja voluntário', href: '#' },
+    { label: 'Doe para o bazar', href: "https://wa.me/5548984452262" },
+    { label: 'Doe alimentos', href: "https://wa.me/5548984452262" },
+    { label: 'Seja voluntário', href: "https://wa.me/5548984452262" },
     { label: 'Faça uma doação', href: '/doacao' },
 ]
 </script>

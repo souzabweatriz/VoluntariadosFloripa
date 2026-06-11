@@ -215,7 +215,7 @@ const causas = [
         img: imgApoio,
         cta: 'Quero ser voluntário',
         title: 'Apoio técnico e profissional',
-        desc: 'Arrecadamos e distribuímos alimentos para famílias em situação de vulnerabilidade social em Florianópolis. Com a ajuda de voluntários e parceiros, conseguimos levar mais dignidade e segurança alimentar para quem precisa.',
+        desc: 'Oferecemos suporte na criação e atualização de currículos, além de orientações para quem deseja se preparar melhor para o mercado de trabalho. Nosso objetivo é ajudar cada pessoa a destacar suas competências e conquistar novas oportunidades profissionais.',
     },
 ]
 
