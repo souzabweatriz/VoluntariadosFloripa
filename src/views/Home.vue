@@ -257,6 +257,7 @@ const pillars = [
     --text-muted: #64648a;
     margin-top: 5rem;
     font-family: 'Segoe UI', system-ui, sans-serif;
+    overflow-x: hidden;
 }
 
 .causas {
@@ -299,7 +300,7 @@ const pillars = [
 }
 
 .causas__title {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 4vw, 2rem);
     font-weight: 800;
     color: #ffffff;
     margin: 0 0 2rem;
@@ -311,11 +312,12 @@ const pillars = [
     display: flex;
     gap: 1.5rem;
     align-items: stretch;
+    flex-wrap: wrap;
 }
 
 /* ── Card ── */
 .card {
-    flex: 1 1 0;
+    flex: 1 1 16rem;
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -353,6 +355,9 @@ const pillars = [
     text-decoration: none;
     backdrop-filter: blur(0.25rem);
     transition: background 0.2s;
+    max-width: calc(100% - 1.5rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card__cta:hover {
@@ -387,7 +392,7 @@ const pillars = [
 }
 
 .section-title {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
     font-weight: 800;
     color: var(--text);
     line-height: 1.15;
@@ -397,6 +402,7 @@ const pillars = [
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 0.7rem 1.5rem;
     border-radius: 999px;
@@ -406,6 +412,7 @@ const pillars = [
     transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
     cursor: pointer;
     border: none;
+    text-align: center;
 }
 
 .btn:hover {
@@ -546,7 +553,7 @@ const pillars = [
 }
 
 .hero__title {
-    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    font-size: clamp(2rem, 8vw, 3.5rem);
     font-weight: 900;
     color: var(--white);
     line-height: 1.1;
@@ -570,6 +577,7 @@ const pillars = [
 .hero__photo-wrap {
     display: flex;
     justify-content: center;
+    min-width: 0;
 }
 
 .hero__photo {
@@ -598,6 +606,7 @@ const pillars = [
     align-items: center;
     justify-content: center;
     gap: 3rem;
+    flex-wrap: wrap;
 }
 
 .stat {
@@ -620,6 +629,7 @@ const pillars = [
     color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
     letter-spacing: 0.06em;
+    text-align: center;
 }
 
 .stat__divider {
@@ -708,7 +718,7 @@ const pillars = [
 }
 
 .about__title {
-    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-size: clamp(1.5rem, 4.5vw, 2.2rem);
 }
 
 .about__body {
@@ -724,6 +734,7 @@ const pillars = [
 
 .about__media {
     position: relative;
+    min-width: 0;
 }
 
 .about__photo {
@@ -749,6 +760,7 @@ const pillars = [
     font-size: 0.78rem;
     color: var(--text-muted);
     line-height: 1.4;
+    max-width: calc(100% - 1.5rem);
 }
 
 .play-btn {
@@ -806,7 +818,7 @@ const pillars = [
 }
 
 .campanhas__title {
-    font-size: 1.75rem;
+    font-size: clamp(1.4rem, 4vw, 1.75rem);
     font-weight: 800;
     color: #1a1a1a;
     margin: 0;
@@ -853,6 +865,7 @@ const pillars = [
 .post-card__img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
     transition: transform 0.35s ease;
 }
 
@@ -892,6 +905,9 @@ const pillars = [
     transform: translateY(0);
 }
 
+/* ────────────────────────────────────────
+   RESPONSIVE
+──────────────────────────────────────── */
 @media (max-width: 900px) {
     .hero__inner {
         grid-template-columns: 1fr;
@@ -937,16 +953,55 @@ const pillars = [
 
     .about__media {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .causas__grid {
+        flex-direction: column;
+    }
+
+    .card {
+        flex: 1 1 auto;
     }
 }
 
-
-
 @media (max-width: 600px) {
+    .home {
+        margin-top: 4rem;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero__inner {
+        padding: 3rem 1.25rem 2rem;
+        gap: 2rem;
+    }
+
+    .hero__eyebrow {
+        font-size: 0.65rem;
+    }
+
+    .hero__photo {
+        height: 200px;
+        border-radius: 1rem;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+    }
+
     .stats-bar__inner {
         flex-direction: column;
         gap: 1.25rem;
+        padding: 1.5rem 1.25rem;
     }
 
     .stat__divider {
@@ -955,8 +1010,75 @@ const pillars = [
     }
 
     .blob--red,
-    .blob--peach {
+    .blob--peach,
+    .blob--orange {
         display: none;
+    }
+
+    .blob--purple {
+        width: 260px;
+        height: 240px;
+    }
+
+    .blob--pink {
+        width: 180px;
+        height: 160px;
+        right: 120px;
+    }
+
+    .blob--yellow {
+        width: 110px;
+        height: 100px;
+    }
+
+    .pillars,
+    .about,
+    .causas,
+    .campanhas {
+        padding: 3rem 0;
+    }
+
+    .pillars__inner,
+    .about__inner,
+    .campanhas__inner {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .pillar-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .causas__inner {
+        width: 100%;
+        padding: 0 1.25rem;
+        box-sizing: border-box;
+    }
+
+    .campanhas__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .campanhas__ig-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .post-card {
+        flex: 1 1 100%;
+    }
+
+    .about__video-badge {
+        font-size: 0.72rem;
+        padding: 0.6rem 0.85rem;
+        gap: 0.5rem;
+    }
+
+    .play-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.8rem;
     }
 }
 </style>
