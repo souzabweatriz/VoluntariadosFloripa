@@ -88,7 +88,7 @@
             <div class="footer__bottom-inner">
                 <span>© {{ year }} Voluntários Floripa · CNPJ 41.254.766/0001-80</span>
                 <span class="footer__bottom-love">Feito com <i class="pi pi-heart-fill footer__heart"
-                        aria-hidden="true" /> em Floripa</span>
+                        aria-hidden="true" /> pela equipe Synaptix</span>
             </div>
         </div>
     </footer>
