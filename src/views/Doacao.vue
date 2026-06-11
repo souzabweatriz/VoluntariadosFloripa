@@ -98,19 +98,19 @@ import AppFooter from '../components/AppFooter.vue'
 // QR Codes PIX gerados previamente para cada valor (estáticos, sem backend)
 const pixPorValor = {
     5: {
-        codigo: '00020126360014BR.GOV.BCB.PIX0114+554898445226252040000530398654045.005802BR5920Voluntariado Floripa6013Florianopolis62070503***63040C8C',
+        codigo: '00020126360014BR.GOV.BCB.PIX01144125476600018052040000530398654045.005802BR5901N6001C62230519VoluntariadoFloripa63047AB2',
         imagem: '../../public/pix/qrcode-pix-5.png'
     },
     10: {
-        codigo: '00020126360014BR.GOV.BCB.PIX0114+5548984452262520400005303986540510.005802BR5920Voluntariado Floripa6013Florianopolis62070503***6304A147',
+        codigo: '00020126360014BR.GOV.BCB.PIX011441254766000180520400005303986540510.005802BR5901N6001C62220518VoluntariosFloripa6304DFE6',
         imagem: '../../public/pix/qrcode-pix-10.png'
     },
     15: {
-        codigo: '00020126360014BR.GOV.BCB.PIX0114+5548984452262520400005303986540515.005802BR5920Voluntariado Floripa6013Florianopolis62070503***6304CF85',
+        codigo: '00020126360014BR.GOV.BCB.PIX011441254766000180520400005303986540515.005802BR5901N6001C62230519VoluntariadoFloripa6304517B',
         imagem: '../../public/pix/qrcode-pix-15.png'
     },
     20: {
-        codigo: '00020126360014BR.GOV.BCB.PIX0114+5548984452262520400005303986540520.005802BR5920Voluntariado Floripa6013Florianopolis62070503***63049B9F',
+        codigo: '00020126330014BR.GOV.BCB.PIX011141254766000520400005303986540520.005802BR5901N6001C62230519VoluntariadoFloripa6304FF6E',
         imagem: '/pix/qrcode-pix-20.png'
     }
 }
