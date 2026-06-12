@@ -110,7 +110,7 @@ const pixPorValor = {
         imagem: '/pix/qrcode-pix-15.png'
     },
     20: {
-        codigo: '00020126330014BR.GOV.BCB.PIX011141254766000520400005303986540520.005802BR5901N6001C62230519VoluntariadoFloripa6304FF6E',
+        codigo: '00020126360014BR.GOV.BCB.PIX011441254766000180520400005303986540520.005802BR5901N6001C62150511Voluntarios63049F87',
         imagem: '/pix/qrcode-pix-20.png'
     }
 }
