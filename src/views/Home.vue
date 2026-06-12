@@ -22,7 +22,9 @@
                     </p>
                     <div class="hero__actions">
                         <RouterLink to="/doacao" class="btn btn--primary">Doe agora</RouterLink>
-                        <RouterLink to="/sobre" class="btn btn--ghost">Conhecer nossa história</RouterLink>
+                        <button class="btn btn--ghost" @click="showSobreModal = true">
+                            Conhecer nossa história
+                        </button>
                     </div>
                 </div>
 
@@ -50,6 +52,99 @@
                 </div>
             </div>
         </section>
+
+        <div v-if="showSobreModal" class="modal-overlay" @click.self="showSobreModal = false">
+            <div class="modal">
+                <button class="modal__close" @click="showSobreModal = false" aria-label="Fechar">
+                    <i class="pi pi-times" />
+                </button>
+
+                <h2 class="modal__title">Nossa história</h2>
+
+                <p class="sobre__body">
+                    A Associação Voluntários Florianópolis é muito mais do que uma organização social: é uma rede de
+                    esperança que transforma vidas todos os dias. Reconhecida como a Melhor ONG de Florianópolis em
+                    2025, a instituição dedica seus esforços à proteção e ao desenvolvimento de crianças e
+                    adolescentes em situação de vulnerabilidade, além de oferecer apoio essencial a mães solo e
+                    famílias com crianças com deficiência.
+                </p>
+
+                <p class="sobre__body">
+                    Com amor, compromisso e responsabilidade social, a associação atende cerca de mil famílias nas
+                    cidades de Florianópolis e São José, levando não apenas auxílio material, mas também dignidade,
+                    acolhimento e oportunidades para um futuro melhor. Entre suas ações estão a distribuição de
+                    alimentos, enxovais para bebês, gás de cozinha, assistência jurídica, apoio psicológico e
+                    programas de encaminhamento profissional que ajudam famílias a conquistarem independência e
+                    qualidade de vida.
+                </p>
+
+                <p class="sobre__body">
+                    Mantida exclusivamente por doações e pelo trabalho de voluntários, a Voluntários Florianópolis é
+                    um exemplo inspirador de solidariedade e impacto social. Cada doação recebida, cada hora de
+                    voluntariado e cada gesto de apoio contribuem para a construção de uma comunidade mais justa,
+                    humana e acolhedora.
+                </p>
+
+                <p class="sobre__body sobre__highlight">
+                    Juntos, podemos transformar desafios em oportunidades e fazer a diferença na vida de quem mais
+                    precisa.
+                </p>
+            </div>
+        </div>
+
+        <div v-if="showLocalModal" class="modal-overlay" @click.self="showLocalModal = false">
+            <div class="modal modal--local">
+                <button class="modal__close" @click="showLocalModal = false" aria-label="Fechar">
+                    <i class="pi pi-times" />
+                </button>
+
+                <h2 class="modal__title">Venha nos conhecer</h2>
+
+                <div class="local-info">
+                    <div class="local-info__item">
+                        <i class="pi pi-map-marker"></i>
+                        <div>
+                            <strong>Endereço</strong>
+                            <p>Rodovia Dr. Antônio Luiz Moura Gonzaga, 4587 - Rio Tavares, Florianópolis - SC, 88048-300</p>
+                        </div>
+                    </div>
+
+                    <div class="local-info__item">
+                        <i class="pi pi-phone"></i>
+                        <div>
+                            <strong>Telefone</strong>
+                            <p>
+                                <a href="https://wa.me/5548984452262" target="_blank" rel="noopener noreferrer">
+                                    (48) 98445-2262
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="local-info__item">
+                        <i class="pi pi-clock"></i>
+                        <div>
+                            <strong>Horário de funcionamento</strong>
+                            <p>Segunda a sexta · 09:00 às 18:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="local-map">
+                    <iframe
+                        src="https://www.google.com/maps?q=Rodovia+Dr.+Ant%C3%B4nio+Luiz+Moura+Gonzaga,+4587+-+Rio+Tavares,+Florian%C3%B3polis+-+SC,+88048-300&output=embed"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Rodovia+Dr.+Ant%C3%B4nio+Luiz+Moura+Gonzaga,+4587+-+Rio+Tavares,+Florian%C3%B3polis+-+SC,+88048-300"
+                    target="_blank" rel="noopener noreferrer" class="btn btn--primary local-map__btn">
+                    Ver rotas no Google Maps
+                </a>
+            </div>
+        </div>
+
         <section class="pillars">
             <div class="pillars__inner">
                 <p class="section-eyebrow">O QUE FAZEMOS</p>
@@ -91,10 +186,10 @@
                         cozinha, apoio emergencial, orientação, encaminhamento para oportunidades de emprego e
                         assistência em diversas necessidades do dia a dia.
                     </p>
-                    <RouterLink to="/sobre" class="btn btn--outline-purple">
-                        Nossa história completa
-                        <i class="pi pi-arrow-right" />
-                    </RouterLink>
+                    <button class="btn btn--outline-purple" @click="showLocalModal = true">
+                        Venha nos conhecer
+                        <i class="pi pi-map-marker" />
+                    </button>
                 </div>
 
                 <div class="about__media">
@@ -190,6 +285,10 @@ import imgDesafio from '../../public/campanhas/desafio.png'
 import imgBrecho from '../../public/campanhas/brecho.png'
 import imgDoe from '../../public/campanhas/doe.png'
 import App from '../App.vue'
+import { ref } from 'vue'
+
+const showSobreModal = ref(false)
+const showLocalModal = ref(false)
 
 const posts = [
     { img: imgGas, alt: 'Doe um gás', link: '#', theme: 'a' },
@@ -258,6 +357,145 @@ const pillars = [
     margin-top: 5rem;
     font-family: 'Segoe UI', system-ui, sans-serif;
     overflow-x: hidden;
+}
+
+/* ────────────────────────────────────────
+   MODAIS
+──────────────────────────────────────── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 30, 46, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1.5rem;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 1.25rem;
+    max-width: 40rem;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
+}
+
+.modal--local {
+    max-width: 36rem;
+}
+
+.modal__close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: var(--gray-100);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.modal__close:hover {
+    background: #e2dcf0;
+}
+
+.modal__title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0 0 1.25rem;
+}
+
+.sobre__body {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin: 0 0 1.1rem;
+}
+
+.sobre__highlight {
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0;
+}
+
+.local-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.local-info__item {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+}
+
+.local-info__item i {
+    font-size: 1.1rem;
+    color: var(--purple);
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.local-info__item strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.local-info__item p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.local-info__item a {
+    color: var(--purple);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.local-info__item a:hover {
+    text-decoration: underline;
+}
+
+.local-map {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+}
+
+.local-map__btn {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .modal {
+        padding: 1.75rem;
+        border-radius: 1rem;
+    }
+
+    .local-map {
+        aspect-ratio: 4/3;
+    }
 }
 
 .causas {
