@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://voluntariados-floripa.vercel.app/sitemap.xml
