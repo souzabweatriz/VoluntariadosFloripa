@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Doacao from '../views/Doacao.vue'
+import Campanhas from '../views/Campanhas.vue'
 
 const routes = [
     {
@@ -13,6 +14,12 @@ const routes = [
         name: 'doacao',
         alias: '/Doacao',
         component: Doacao
+    },
+    {
+        path: '/campanhas',
+        name: 'Campanhas',
+        alias: '/Campanhas',
+        component: () => Campanhas
     }
 ]
 

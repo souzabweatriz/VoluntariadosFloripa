@@ -105,7 +105,8 @@
                         <i class="pi pi-map-marker"></i>
                         <div>
                             <strong>Endereço</strong>
-                            <p>Rodovia Dr. Antônio Luiz Moura Gonzaga, 4587 - Rio Tavares, Florianópolis - SC, 88048-300</p>
+                            <p>Rodovia Dr. Antônio Luiz Moura Gonzaga, 4587 - Rio Tavares, Florianópolis - SC, 88048-300
+                            </p>
                         </div>
                     </div>
 
@@ -210,7 +211,7 @@
                 </div>
             </div>
         </section>
-        <section  id="causas" class="causas">
+        <section id="causas" class="causas">
             <div class="causas__blob-bg">
                 <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0,0 L1440,0 L1440,600 L0,600 Z" fill="#5a3e9b" />
@@ -259,14 +260,14 @@
                 </div>
 
                 <div class="campanhas__grid">
-                    <a v-for="(post, i) in posts" :key="i" :href="post.link" target="_blank" rel="noopener noreferrer"
-                        class="post-card" :class="`post-card--${post.theme}`">
+                    <router-link v-for="(post, i) in posts" :key="i" to="/campanhas" class="post-card"
+                        :class="`post-card--${post.theme}`">
                         <img :src="post.img" :alt="post.alt" class="post-card__img" />
 
                         <div class="post-card__overlay">
                             <span class="post-card__label">Ver campanha</span>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </section>
